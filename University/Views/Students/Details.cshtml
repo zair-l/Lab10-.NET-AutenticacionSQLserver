@@ -1,0 +1,5 @@
+@model University.Models.Student
+@{ ViewBag.Title = "Detalle del estudiante"; }
+<h1>Detalle del estudiante</h1><p class="lead">Datos personales y académicos.</p>
+<div class="panel"><dl class="details"><dt>Apellido</dt><dd>@Html.DisplayFor(m => m.LastName)</dd><dt>Nombre</dt><dd>@Html.DisplayFor(m => m.FirstName)</dd><dt>Fecha de matrícula</dt><dd>@(Model.EnrollmentDate.HasValue ? Model.EnrollmentDate.Value.ToString("dd/MM/yyyy") : "—")</dd><dt>Correo electrónico</dt><dd>@(String.IsNullOrWhiteSpace(Model.Email) ? "Sin registrar" : Model.Email)</dd></dl><div class="actions">@Html.ActionLink("Editar", "Edit", new { id = Model.StudentID }, new { @class = "btn" }) @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-secondary" })</div></div>
+

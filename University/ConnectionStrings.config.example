@@ -1,0 +1,3 @@
+<connectionStrings>
+  <add name="UniversityDBEntities" connectionString="metadata=res://*/University.Models.UniversityModel.csdl|res://*/University.Models.UniversityModel.ssdl|res://*/University.Models.UniversityModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=UniversityDB;User ID=usrUniversity;Password=REEMPLAZAR_CON_CLAVE_LOCAL;MultipleActiveResultSets=True;App=EntityFramework&quot;" providerName="System.Data.EntityClient" />
+</connectionStrings>

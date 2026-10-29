@@ -1,0 +1,10 @@
+@model IEnumerable<University.Models.Enrollment>
+@{ ViewBag.Title = "Matrículas"; }
+<h1>Matrículas</h1><p class="lead">Vincula estudiantes con cursos y registra sus calificaciones.</p>
+<div class="actions">@Html.ActionLink("+ Nueva matrícula", "Create", null, new { @class = "btn" })</div>
+<div class="panel">
+@if (!Model.Any()) { <div class="empty">Todavía no hay matrículas registradas.</div> }
+else { <table class="table"><thead><tr><th>Estudiante</th><th>Curso</th><th>Nota</th><th>Acciones</th></tr></thead><tbody>
+@foreach (var item in Model) { <tr><td>@item.Student.LastName, @item.Student.FirstName</td><td>@item.Course.Title</td><td>@(item.Grade.HasValue ? item.Grade.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) : "Pendiente")</td><td class="row-actions">@Html.ActionLink("Editar", "Edit", new { id = item.EnrollmentID }) @Html.ActionLink("Detalles", "Details", new { id = item.EnrollmentID }) @Html.ActionLink("Eliminar", "Delete", new { id = item.EnrollmentID })</td></tr> }
+</tbody></table> }
+</div>

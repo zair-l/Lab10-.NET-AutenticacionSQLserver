@@ -1,0 +1,12 @@
+@model IEnumerable<University.Models.Student>
+@{ ViewBag.Title = "Estudiantes"; }
+<h1>Estudiantes</h1><p class="lead">Consulta y administra los datos de matrícula y correo electrónico.</p>
+<div class="actions">@Html.ActionLink("+ Nuevo estudiante", "Create", null, new { @class = "btn" })</div>
+<div class="panel">
+@if (!Model.Any()) { <div class="empty">Todavía no hay estudiantes registrados.</div> }
+else { <table class="table student-table"><thead><tr><th>Apellido</th><th>Nombre</th><th>Fecha de matrícula</th><th>Correo electrónico</th><th>Acciones</th></tr></thead><tbody>
+@foreach (var item in Model) { <tr><td>@Html.DisplayFor(m => item.LastName)</td><td>@Html.DisplayFor(m => item.FirstName)</td><td>@(item.EnrollmentDate.HasValue ? item.EnrollmentDate.Value.ToString("dd/MM/yyyy") : "—")</td><td>@(String.IsNullOrWhiteSpace(item.Email) ? "—" : item.Email)</td><td class="row-actions">@Html.ActionLink("Editar", "Edit", new { id = item.StudentID }) @Html.ActionLink("Detalles", "Details", new { id = item.StudentID }) @Html.ActionLink("Eliminar", "Delete", new { id = item.StudentID })</td></tr> }
+</tbody></table> }
+</div>
+
+

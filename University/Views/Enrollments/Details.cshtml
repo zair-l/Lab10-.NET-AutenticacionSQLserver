@@ -1,0 +1,4 @@
+@model University.Models.Enrollment
+@{ ViewBag.Title = "Detalle de matrícula"; }
+<h1>Detalle de matrícula</h1><p class="lead">Estudiante, curso y calificación.</p>
+<div class="panel"><dl class="details"><dt>Estudiante</dt><dd>@Model.Student.LastName, @Model.Student.FirstName</dd><dt>Curso</dt><dd>@Model.Course.Title</dd><dt>Nota</dt><dd>@(Model.Grade.HasValue ? Model.Grade.Value.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) : "Pendiente")</dd></dl><div class="actions">@Html.ActionLink("Editar", "Edit", new { id = Model.EnrollmentID }, new { @class = "btn" }) @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-secondary" })</div></div>

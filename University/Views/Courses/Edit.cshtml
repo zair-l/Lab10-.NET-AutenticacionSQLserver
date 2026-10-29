@@ -1,0 +1,5 @@
+@model University.Models.Course
+@{ ViewBag.Title = "Editar curso"; }
+<h1>Editar curso</h1><p class="lead">Actualiza los datos del curso.</p>
+<div class="panel form-grid">@using (Html.BeginForm()) { @Html.AntiForgeryToken() @Html.HiddenFor(m => m.CourseID) @Html.Partial("_Form", Model) <div class="actions"><button class="btn" type="submit">Guardar cambios</button>@Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-secondary" })</div> }</div>
+@section scripts { <script src="~/Scripts/jquery.validate.min.js"></script><script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script> }

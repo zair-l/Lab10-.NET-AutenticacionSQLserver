@@ -1,0 +1,6 @@
+@model University.Models.Student
+@{ ViewBag.Title = "Eliminar estudiante"; }
+<h1>Eliminar estudiante</h1><p class="lead">Confirma la eliminación de este registro.</p>
+<div class="panel">@Html.ValidationSummary(true, "", new { @class = "validation-summary-errors" })<dl class="details"><dt>Apellido</dt><dd>@Html.DisplayFor(m => m.LastName)</dd><dt>Nombre</dt><dd>@Html.DisplayFor(m => m.FirstName)</dd><dt>Fecha de matrícula</dt><dd>@(Model.EnrollmentDate.HasValue ? Model.EnrollmentDate.Value.ToString("dd/MM/yyyy") : "—")</dd><dt>Correo electrónico</dt><dd>@(String.IsNullOrWhiteSpace(Model.Email) ? "Sin registrar" : Model.Email)</dd></dl>@using (Html.BeginForm()) { @Html.AntiForgeryToken() <div class="actions"><button class="btn btn-danger" type="submit">Eliminar estudiante</button>@Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-secondary" })</div> }</div>
+
+

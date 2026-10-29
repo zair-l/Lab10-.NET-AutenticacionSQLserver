@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewBag.Title | University</title>
+    <link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+    <header class="topbar">
+        <div class="wrap nav-wrap">
+            @Html.ActionLink("University", "Index", "Courses", null, new { @class = "brand" })
+            <nav aria-label="Navegación principal">
+                @Html.ActionLink("Cursos", "Index", "Courses")
+                @Html.ActionLink("Estudiantes", "Index", "Students")
+                @Html.ActionLink("Matrículas", "Index", "Enrollments")
+            </nav>
+        </div>
+    </header>
+    <main class="wrap content">
+        @RenderBody()
+    </main>
+    <footer class="wrap footer">Laboratorio 10 · MVC y Entity Framework</footer>
+    <script src="~/Scripts/jquery-3.7.0.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

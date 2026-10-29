@@ -1,0 +1,4 @@
+@model University.Models.Course
+@{ ViewBag.Title = "Detalle del curso"; }
+<h1>Detalle del curso</h1><p class="lead">Información del curso seleccionado.</p>
+<div class="panel"><dl class="details"><dt>@Html.DisplayNameFor(m => m.Title)</dt><dd>@Html.DisplayFor(m => m.Title)</dd><dt>@Html.DisplayNameFor(m => m.Credits)</dt><dd>@Html.DisplayFor(m => m.Credits)</dd></dl><div class="actions">@Html.ActionLink("Editar", "Edit", new { id = Model.CourseID }, new { @class = "btn" }) @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-secondary" })</div></div>

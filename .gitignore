@@ -1,0 +1,25 @@
+# Visual Studio cache and per-user settings
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build output
+**/bin/
+**/obj/
+[Dd]ebug/
+[Rr]elease/
+[Aa]rtifacts/
+
+# NuGet packages are restored from packages.config
+packages/
+
+# Local SQL Server connection credentials
+University/ConnectionStrings.config
+
+# Temporary Entity Framework generation output
+_edmgen/
+
+# Test output
+TestResults/

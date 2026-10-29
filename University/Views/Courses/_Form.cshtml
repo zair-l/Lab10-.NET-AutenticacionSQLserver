@@ -1,0 +1,4 @@
+@model University.Models.Course
+@Html.ValidationSummary(true, "", new { @class = "validation-summary-errors" })
+<div class="field">@Html.LabelFor(m => m.Title) @Html.TextBoxFor(m => m.Title, new { @class = "input", maxlength = "100" }) @Html.ValidationMessageFor(m => m.Title)</div>
+<div class="field">@Html.LabelFor(m => m.Credits) @Html.TextBoxFor(m => m.Credits, new { @class = "input", type = "number", min = "1", max = "6" }) @Html.ValidationMessageFor(m => m.Credits)</div>

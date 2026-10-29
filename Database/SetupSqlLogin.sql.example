@@ -1,0 +1,31 @@
+/* Run this script in SSMS using an administrator connection, after UniversityDB.sql. */
+IF NOT EXISTS (SELECT 1 FROM sys.sql_logins WHERE name = N'usrUniversity')
+    CREATE LOGIN [usrUniversity] WITH PASSWORD = N'CAMBIAR_POR_LA_CLAVE_DE_LA_GUIA',
+        CHECK_POLICY = OFF, CHECK_EXPIRATION = OFF, DEFAULT_DATABASE = [UniversityDB];
+GO
+IF NOT EXISTS
+(
+    SELECT 1 FROM sys.server_role_members AS rm
+    INNER JOIN sys.server_principals AS r ON r.principal_id = rm.role_principal_id
+    INNER JOIN sys.server_principals AS u ON u.principal_id = rm.member_principal_id
+    WHERE r.name = N'sysadmin' AND u.name = N'usrUniversity'
+)
+    ALTER SERVER ROLE [sysadmin] ADD MEMBER [usrUniversity];
+GO
+USE [UniversityDB];
+GO
+IF NOT EXISTS (SELECT 1 FROM sys.database_principals WHERE name = N'usrUniversity')
+    CREATE USER [usrUniversity] FOR LOGIN [usrUniversity];
+GO
+IF NOT EXISTS
+(
+    SELECT 1 FROM sys.database_role_members AS drm
+    INNER JOIN sys.database_principals AS r ON r.principal_id = drm.role_principal_id
+    INNER JOIN sys.database_principals AS u ON u.principal_id = drm.member_principal_id
+    WHERE r.name = N'db_owner' AND u.name = N'usrUniversity'
+)
+    ALTER ROLE [db_owner] ADD MEMBER [usrUniversity];
+GO
+
+
+

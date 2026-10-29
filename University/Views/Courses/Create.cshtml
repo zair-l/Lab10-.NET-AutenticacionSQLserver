@@ -1,0 +1,5 @@
+@model University.Models.Course
+@{ ViewBag.Title = "Nuevo curso"; }
+<h1>Nuevo curso</h1><p class="lead">Registra un curso y su cantidad de créditos.</p>
+<div class="panel form-grid">@using (Html.BeginForm()) { @Html.AntiForgeryToken() @Html.Partial("_Form", Model) <div class="actions"><button class="btn" type="submit">Guardar curso</button>@Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-secondary" })</div> }</div>
+@section scripts { <script src="~/Scripts/jquery.validate.min.js"></script><script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script> }
